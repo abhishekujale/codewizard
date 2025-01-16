@@ -20,3 +20,37 @@
     font-weight: normal;
     font-style: normal;
 }
+
+
+.navImage {
+    display: none;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    clip-path: inset(0 0 0 0); /* Initially fully visible */
+}
+
+.navContainer:hover .navImage {
+    display: block;
+    animation: revealToMiddle 0.5s ease-in-out forwards;
+}
+
+@keyframes revealToMiddle {
+    0% {
+        width: 100%; /* Start fully covering */
+        clip-path: inset(0 100% 0 100%); /* Fully visible */
+    }
+    30% {
+        width: 100%;
+        clip-path: inset(0 50% 0 50%); /* Narrow to the middle */
+    }
+    70% {
+        width: 100%;
+        clip-path: inset(0 25% 0 25%); /* Narrow to the middle */
+    }
+    100% {
+        width: 100%;
+        clip-path: inset(0 0 0 0); /* Only the middle is visible */
+    }
+}
+

@@ -18,9 +18,11 @@ export default {
                 custom3: ['Machumaine', 'sans-serif'], 
       },
        backgroundImage: {
-                'Home-bg': "url('/images/speech.svg')",
+                'Home-bg': "url('/images/speech.png')",
             },
     },
   },
-  plugins: [],
+ plugins: [
+    require('tailwind-scrollbar'),
+  ],
 } satisfies Config;

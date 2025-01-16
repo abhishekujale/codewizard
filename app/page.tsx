@@ -1,9 +1,11 @@
-import Image from "next/image";
-import CodeWizard from "@/components/Home";
+import HomePage from "@/components/Home";
+import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
-    <div>
-      <CodeWizard />
+    <div className="h-screen w-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-yellow-300 scrollbar-track-black overflow-x-hidden">
+      <Navbar />
+      <HomePage />
+
     </div>
   );
 }
