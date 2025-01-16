@@ -12,6 +12,14 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+                custom1: ['Harry', 'sans-serif'], 
+                custom2: ['HitamInk', 'sans-serif'], 
+                custom3: ['Machumaine', 'sans-serif'], 
+      },
+       backgroundImage: {
+                'Home-bg': "url('/images/speech.svg')",
+            },
     },
   },
   plugins: [],
