@@ -8,6 +8,7 @@ export default {
   ],
   theme: {
     extend: {
+      
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -19,7 +20,13 @@ export default {
       },
        backgroundImage: {
                 'Home-bg': "url('/images/speech.png')",
+                'About-bg': "url('/images/2ndpagebg.png')",
+                'Faq-bg' : "url('/images/faqbg.png')" 
             },
+      backgroundSize:{
+        '100%': '100%',
+        '50%' : '50%'
+      }
     },
   },
  plugins: [
