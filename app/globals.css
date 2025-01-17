@@ -54,3 +54,31 @@
     }
 }
 
+
+
+
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px; 
+    height: 5px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #5C3317; 
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #3A2210; 
+  }
+  
+  
+  .custom-scrollbar {
+    scrollbar-color: #5C3317 transparent; 
+    scrollbar-width: thin; 
+  }
+  
