@@ -2,31 +2,30 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-export const floatingAnimation
-    //   : TargetAndTransition
-    = {
+import Navbar from './Navbar';
+
+
+export const floatingAnimation = {
     y: [-10, 10, 0],
     transition: {
         duration: 2,
         repeat: Infinity,
-        repeatType: "mirror",
-        ease: "easeInOut",
     },
 };
 
 
 export const glowAnimation = {
-    textShadow: [
-        "0 0 10px rgba(255, 183, 0, 0.5)",
-        "0 0 20px rgba(255, 183, 0, 0.8)",
-        "0 0 10px rgba(255, 183, 0, 0.5)",
-    ],
-    transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatType: "reverse",
+    animate: {
+        opacity: [0.5, 1, 0.5],
+        scale: [1, 1.05, 1],
+        transition: {
+            duration: 2,
+            repeat: Infinity,
+            repeatType: "mirror",
+        },
     },
 };
+
 const HomePage = () => {
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
@@ -82,34 +81,39 @@ const HomePage = () => {
 
     return (
         <motion.div
+            id='home'
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="bg-Home-bg bg-cover bg-center h-screen"
+            className="bg-Home-bg bg-cover bg-center"
         >
-
+            <Navbar />
 
 
             {/* Main Content */}
             <main className="relative z-10 flex items- justify-center container  px-4 pt-12 text-center">
-                <div >
+                <div>
 
-                    <div className='flex'>
+                    <div>
                         <motion.h1
                             animate={glowAnimation}
-                            className="text-[100px] lg:text-[160px] mt-16 text-white font-custom1 lg:translate-x-44 -translate-y-16"
+                            className="text-[100px] lg:text-[160px]  text-white font-custom1  -translate-y-16  mt-16"
 
                         >
                             CodeWizard
                         </motion.h1>
-
+                        <motion.h1
+                            animate={floatingAnimation}
+                            className="hidden text-[25px] lg:text-[40px]  text-[#F3AA06] font-custom2 -mt-32  translate-x-44"
+                        >
+                            -&nbsp;  Where Magic Meets Logic
+                        </motion.h1>
                     </div>
-
 
                     {/* Countdown Timer */}
                     <motion.div
                         variants={containerVariants}
-                        className="flex justify-center gap-3 lg:gap-8 mt-48 lg:translate-x-44 "
+                        className="flex justify-center gap-3 lg:gap-8 mt-48 lg:translate-x-40 lg:translate-y-36"
                     >
                         {[
                             { label: 'Days', value: timeLeft.days },
@@ -124,7 +128,7 @@ const HomePage = () => {
                                 >
                                     <motion.div
                                         animate={floatingAnimation}
-                                        className="text-[40px] lg:text-[70px]  font-bold text-white font-custom1"
+                                        className="text-[40px] lg:text-[90px]  font-bold text-white font-custom1"
                                     >
                                         {String(item.value).padStart(2, '0')}
                                     </motion.div>
@@ -133,7 +137,7 @@ const HomePage = () => {
                                 {index < 3 && (
                                     <motion.div
                                         variants={itemVariants}
-                                        className="text-4xl font-bold text-white"
+                                        className="text-[40px] lg:text-[90px] font-bold text-white"
                                     >
                                         :
                                     </motion.div>

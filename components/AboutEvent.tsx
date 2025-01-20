@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
+import Image from "next/image";
 export default function AboutEvent() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -29,27 +29,27 @@ export default function AboutEvent() {
     >
       {/* Heading */}
       <h1
-        className={`text-[80px] sm:text-[70px] lg:text-[100px] xl:text-[120px] font-custom1 font-bold text-white mb-8 sm:mb-4 text-center ${
-          isVisible ? "animate-fade-in" : "opacity-0"
-        }`}
+        className={`text-[80px] sm:text-[70px] lg:text-[100px] xl:text-[120px] font-custom1 font-bold text-white mb-8 sm:mb-4 text-center ${isVisible ? "animate-fade-in" : "opacity-0"
+          }`}
       >
         About Event
       </h1>
 
       {/* Image Box */}
       <div
-        className={`bg-white bg-opacity-80 rounded-lg shadow-lg w-full sm:w-4/5 md:w-3/5 lg:w-1/2 xl:w-2/3 flex justify-center items-center ${
-          isVisible ? "animate-zoom-in" : "opacity-0"
-        }`}
+        className={`bg-white bg-opacity-80 rounded-lg shadow-lg w-full sm:w-4/5 md:w-3/5 lg:w-1/2 xl:w-2/3 flex justify-center items-center ${isVisible ? "animate-zoom-in" : "opacity-0"
+          }`}
       >
-        <img
+        <Image
           src="/images/Poster.png"
           alt="Event Poster"
           className="w-full h-auto rounded-md object-contain"
+          width={200}
+          height={200}
         />
       </div>
 
-      
+
       <style jsx global>{`
         @keyframes fade-in {
           0% {

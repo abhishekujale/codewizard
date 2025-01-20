@@ -21,7 +21,11 @@ export default {
        backgroundImage: {
                 'Home-bg': "url('/images/speech.png')",
                 'About-bg': "url('/images/2ndpagebg.png')",
-                'Faq-bg' : "url('/images/faqbg.png')" 
+         'Faq-bg': "url('/images/faqbg.png')",
+                'sponsor-bg' : "url('/images/SponsorBack.png')" ,
+                'border-bg' : "url('/images/border.png')" ,
+                'prize-bg' : "url('/images/prizesbg.png')" ,
+                'contact-bg' : "url('/images/contactbg.png')" ,
             },
       backgroundSize:{
         '100%': '100%',

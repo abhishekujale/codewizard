@@ -2,7 +2,55 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+
+
+
+
+interface navComponents {
+    text: string
+    link: string
+    largeDevice: boolean
+}
+const allComp = [
+    {
+        text: "Home",
+        link: "#"
+    },
+    {
+        text: "Sponsor",
+        link: "#sponsor"
+    }, {
+        text: "About",
+        link: "#about-event"
+    }, {
+        text: "FAQ's",
+        link: "#faq"
+    }
+]
+
+const Card = ({ text, link, largeDevice }: navComponents) => {
+    return (
+        <div className='text-center cursor-pointer navContainer'>
+
+            <Link href={link} className="text-[#FFB000] hover:text-[#FFB000] font-custom1 text-4xl">
+                {text}
+
+                {largeDevice && (<Image
+                    src="/images/navdesign.png"
+                    alt="Acses Nav Design"
+                    width={90}
+                    className='-my-1.3 navImage'
+                    height={90}
+                />)}
+            </Link>
+        </div>
+    )
+}
+
+
+
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +58,6 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
     return (
         <nav className="bg-[#1a1a1a] border-b border-[#3d3d3d]">
             <div className="max-w-6xl mx-auto px-4">
@@ -28,44 +75,16 @@ const Navbar = () => {
 
                     {/* Desktop menu */}
                     <div className="hidden md:flex items-center space-x-16 -mx-28">
-                        <div className='text-center cursor-pointer navContainer'>
-                            <a href="#" className="text-[#ffd700] hover:text-[#ffed4a] font-custom1 text-4xl md:text-4xl">
-                                Home
-                            </a>
-                            <Image
-                                src="/images/navdesign.png"
-                                alt="Acses Nav Design"
-                                width={90}
-                                height={90}
-                                className='-my-1.3 navImage'
-                            />
-                        </div>
-                        <div className='text-center cursor-pointer navContainer'>
-                            <a href="#" className="text-[#ffd700] hover:text-[#ffed4a] font-custom1 text-4xl">
-                                About
-                            </a>
-                            <Image
-                                src="/images/navdesign.png"
-                                alt="Acses Nav Design"
-                                width={90}
-                                height={90}
-                                className='-my-1.3 navImage'
-                            />
-                        </div>
-                        <div className='text-center cursor-pointer navContainer'>
+                        {
+                            allComp.map((item, index) => (
 
-                            <a href="#" className="text-[#ffd700] hover:text-[#ffed4a] font-custom1 text-4xl">
-                                Contact
-                            </a>
-                            <Image
-                                src="/images/navdesign.png"
-                                alt="Acses Nav Design"
-                                width={90}
-                                className='-my-1.3 navImage'
-                                height={90}
-                            />
-                        </div>
+                                <Card text={allComp[index].text} link={allComp[index].link} key={index} largeDevice={true} />
 
+                            ))
+                        }
+                        <button className=' bg-[#FFB000] text-black p-3 font-custom2 rounded-lg text-xl hover:bg-[#FFA003]'>
+                            Register
+                        </button>
                     </div>
 
                     {/* Mobile menu button */}
@@ -80,37 +99,29 @@ const Navbar = () => {
                                 <Menu className="h-6 w-6" />
                             )}
                         </button>
+
                     </div>
                 </div>
 
                 {/* Mobile menu */}
                 {isOpen && (
-                    <div className="md:hidden">
+                    <div className="md:hidden text-center">
                         <div className="px-2 pt-2 pb-3 space-y-1 bg-[#1a1a1a]">
-                            <a
-                                href="#"
-                                className="block px-3 py-2 text-[#ffd700] hover:text-[#ffed4a]"
-                            >
-                                Home
-                            </a>
-                            <a
-                                href="#"
-                                className="block px-3 py-2 text-[#ffd700] hover:text-[#ffed4a]"
-                            >
-                                About
-                            </a>
-                            <a
-                                href="#"
-                                className="block px-3 py-2 text-[#ffd700] hover:text-[#ffed4a]"
-                            >
-                                Contact
-                            </a>
+                            {
+                                allComp.map((item, index) => (
+                                    <Card text={allComp[index].text} link={allComp[index].link} key={index} largeDevice={false} />
+                                ))
+                            }
                         </div>
+                        <button className=' bg-[#FFB000] text-black p-3 font-custom2 rounded-lg text-xl hover:bg-[#FFA003]'>
+                            Register
+                        </button>
                     </div>
                 )}
             </div>
         </nav>
     );
 };
+
 
 export default Navbar;
