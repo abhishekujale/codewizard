@@ -10,20 +10,25 @@ export const floatingAnimation = {
     transition: {
         duration: 2,
         repeat: Infinity,
+        ease: "easeInOut",
+        repeatType: "reverse" as const,
     },
 };
 
 
 export const glowAnimation = {
-    animate: {
-        opacity: [0.5, 1, 0.5],
-        scale: [1, 1.05, 1],
-        transition: {
-            duration: 2,
-            repeat: Infinity,
-            repeatType: "mirror",
-        },
+
+    textShadow: [
+        "0 0 10px rgba(255, 183, 0, 0.5)",
+        "0 0 20px rgba(255, 183, 0, 0.8)",
+        "0 0 10px rgba(255, 183, 0, 0.5)",
+    ],
+    transition: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse" as const,
     },
+
 };
 
 const HomePage = () => {
@@ -97,7 +102,7 @@ const HomePage = () => {
                     <div>
                         <motion.h1
                             animate={glowAnimation}
-                            className="text-[100px] lg:text-[160px]  text-white font-custom1  -translate-y-16  mt-16"
+                            className="text-[100px] lg:text-[160px]  text-white font-custom1    mt-16"
 
                         >
                             CodeWizard
@@ -145,20 +150,27 @@ const HomePage = () => {
                             </React.Fragment>
                         ))}
 
-                        <div>
-                            <Image
-                                src="/images/dialog.png"
-                                alt="Rocket"
-                                width={300}
-                                height={300}
-                                className='-translate-y-40 lg:block -translate-x-24'
-                            />
+                        <div className='hidden lg:block'>
+                            <motion.div
+                                variants={itemVariants}
+                                animate={floatingAnimation}
+                            >
+                                <Image
+                                    src="/images/dialog.png"
+                                    alt="Rocket"
+                                    width={300}
+                                    height={300}
+                                    className='-translate-y-40  -translate-x-24'
+                                />
+
+                            </motion.div>
+
                             <Image
                                 src="/images/harrymama.png"
                                 alt="Rocket"
                                 width={300}
                                 height={300}
-                                className='-translate-y-40 lg:block translate-x-8'
+                                className='-translate-y-40  translate-x-8'
                             />
                         </div>
                     </motion.div>

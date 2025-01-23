@@ -2,7 +2,17 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { floatingAnimation } from './Home';
+
+
+const sponsorsImages = [
+    {
+        url: '/sponsors/HackerRank.jpg',
+    },
+    {
+        url: '/sponsors/xyz.webp',
+    }
+
+]
 export default function SponsorFrame() {
     return (
         <div className="relative min-h-screen  p-8 bg-sponsor-bg bg-center bg-cover" id='sponsor'>
@@ -29,11 +39,11 @@ export default function SponsorFrame() {
                     </motion.h2>
 
                     {/* Frames container */}
-                    <div className="flex flex-wrap  text-center justify-center items-center">
-                        {[1, 2, 3,].map((frame) => (
+                    <div className="flex flex-wrap  text-center justify-center items-center gap-4">
+                        {sponsorsImages.map((frame, index) => (
                             <motion.div
-                                key={frame}
-                                className="relative w-64 h-64 flex text-center left-16 lg:left-0 "
+                                key={index}
+                                className="relative w-64 h-64 flex text-center left-10 lg:left-0 "
                                 animate={{
                                     y: [-15, 15, -15],
                                 }}
@@ -41,16 +51,17 @@ export default function SponsorFrame() {
                                     duration: 4,
                                     repeat: Infinity,
                                     ease: "easeInOut",
-                                    delay: frame * 0.3
+                                    delay: index * 0.3
                                 }}
                             >
                                 {/* SVG Frame */}
-                                <div className="relative w-1/2 h-1/2 lg:w-full lg:h-full">
+                                <div className="relative  lg:w-full lg:h-full">
                                     <Image
-                                        src="/images/SponsorKit.png"
+                                        src={frame.url ? frame.url : "/images/SponsorKit.png"}
                                         alt='sponsorKit'
                                         width={200}
                                         height={200}
+                                        className='lg:w-full lg:h-full border rounded-[30px]'
                                     />
                                 </div>
                             </motion.div>
@@ -61,30 +72,39 @@ export default function SponsorFrame() {
 
             </motion.div>
             {/* Speech bubble */}
-            <motion.div
-                className="hidden lg:flex justify-end items-end translate-x-96 "
-                animate={floatingAnimation}
-                transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                }}
+            <div
+                className="hidden lg:flex justify-end items-end "
+
             >
+                <motion.div
+
+                    animate={{
+                        y: [-15, 15, -15],
+                    }}
+                    transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+
+                    }}
+                >
+
+                    <Image
+                        src="/images/dialog01.png"
+                        alt='Frame1'
+                        width={400}
+                        height={400}
+                        className='-translate-y-64 translate-x-20'
+                    />
+                </motion.div>
                 <Image
-                    src="/images/dialog01.png"
-                    alt='Frame1'
-                    width={400}
-                    height={400}
-                    className='-translate-y-64 translate-x-20'
-                />
-                <Image
-                    src="/images/harrymama01.png"
+                    src="/images/Harrymama01.png"
                     alt='Frame1'
                     width={250}
                     height={250}
-                    className='translate-x-10 border-b-white'
+                    className='translate-x-10 border-b-white translate-y-10'
                 />
-            </motion.div>
+            </div>
 
             <style jsx global>{`
                 @keyframes flicker {

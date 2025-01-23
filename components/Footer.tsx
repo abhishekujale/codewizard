@@ -91,7 +91,9 @@ export default function Footer() {
                             className="text-lg font-semibold mb-4 text-[38px]"
                             whileHover={{ scale: 1.02, color: '#FFA800' }}
                         >
-                            ABOUT US
+                            <Link href='#about-event'>
+                                ABOUT EVENT
+                            </Link>
                         </motion.h4>
                         <motion.p
                             className="text-sm leading-relaxed font-custom2 text-[16px]"
@@ -111,13 +113,13 @@ export default function Footer() {
                             USEFUL LINKS
                         </motion.h4>
                         <ul className="space-y-2 text-sm font-custom2">
-                            {['Home', 'About Us', 'Gallery', 'Contact'].map((item, index) => (
+                            {['Home', 'About Event', 'FAQ', 'SPONSOR',].map((item, index) => (
                                 <motion.li
                                     key={index}
                                     whileHover={{ x: 10, color: '#FFA800' }}
                                     transition={{ duration: 0.2 }}
                                 >
-                                    <Link href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}>
+                                    <Link href={item === 'Home' ? '/' : `#${item.toLowerCase().replace(' ', '-')}`}>
                                         <p className="text-[20px]">{item}</p>
                                     </Link>
                                 </motion.li>

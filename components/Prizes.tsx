@@ -76,7 +76,7 @@ const RewardsPage: React.FC = () => {
             </motion.div>
 
             {/* Main content section */}
-            <div className="flex justify-between items-center mx-auto none lg:block">
+            <div className="flex justify-between items-center mx-auto  ">
                 {/* Animated message box */}
                 <motion.div
                     className="w-1/2 "
@@ -90,7 +90,7 @@ const RewardsPage: React.FC = () => {
                         alt='Frame1'
                         width={350}
                         height={350}
-                        className=' translate-y-60 border-b-white -translate-x-11'
+                        className=' translate-y-60 border-b-white -translate-x-11 hidden lg:block'
                     />
                     <motion.div
                         className="hidden lg:flex justify-end items-end "

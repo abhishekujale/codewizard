@@ -28,6 +28,10 @@ const allComp = [
         text: "FAQ's",
         link: "#faq"
     }
+    , {
+        text: "Register",
+        link: "https://forms.gle/SxeRBFGbFLFvaUK46"
+    }
 ]
 
 const Card = ({ text, link, largeDevice }: navComponents) => {
@@ -59,17 +63,20 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
     return (
-        <nav className="bg-[#1a1a1a] border-b border-[#3d3d3d]">
+        <nav className="bg-[#251300] border-b border-[#3d3d3d] fixed z-50 w-screen">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center h-20">
                     <div className='lg:-mx-40 mx-0 md:mx-0'>
-                        <Image
-                            src="/images/logo.png"
-                            alt="Acses Logo Design"
-                            width={150}
-                            height={150}
-                            className='-my-1.3'
-                        />
+                        <Link href="#">
+                            <Image
+                                src="/images/logo.png"
+                                alt="Acses Logo Design"
+                                width={150}
+                                height={150}
+                                className='-my-1.3'
+                            />
+                        </Link>
+
                     </div>
 
 
@@ -82,9 +89,7 @@ const Navbar = () => {
 
                             ))
                         }
-                        <button className=' bg-[#FFB000] text-black p-3 font-custom2 rounded-lg text-xl hover:bg-[#FFA003]'>
-                            Register
-                        </button>
+
                     </div>
 
                     {/* Mobile menu button */}
@@ -113,9 +118,7 @@ const Navbar = () => {
                                 ))
                             }
                         </div>
-                        <button className=' bg-[#FFB000] text-black p-3 font-custom2 rounded-lg text-xl hover:bg-[#FFA003]'>
-                            Register
-                        </button>
+
                     </div>
                 )}
             </div>
