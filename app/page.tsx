@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import HomePage from "@/components/Home";
 import Sponsor from "@/components/Sponsor";
 import RewardsPage from "@/components/Prizes";
+import RoundesAndRules from "@/components/RoundsAndRules";
 export default function Home() {
   // const [showIntro, setShowIntro] = React.useState(true);
 
@@ -28,6 +29,7 @@ export default function Home() {
           <HomePage />
           <AboutEvent />
           <RewardsPage />
+          <RoundesAndRules />
           <Sponsor />
           <Faqsection />
           <Footer />
