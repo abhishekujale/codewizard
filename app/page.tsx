@@ -29,8 +29,9 @@ export default function Home() {
           <HomePage />
           <AboutEvent />
           <RewardsPage />
-          <RoundesAndRules />
+
           <Sponsor />
+          <RoundesAndRules />
           <Faqsection />
           <Footer />
 

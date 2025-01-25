@@ -1,98 +1,76 @@
 'use client'
-import React from 'react';
-import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
-import { floatingAnimation, glowAnimation } from './Home';
-const RoundesAndRules: React.FC = () => {
-
-    const detailsVariants: Variants = {
-        hidden: { opacity: 0, x: -50 },
-        visible: { opacity: 1, x: 0 }
-    };
-
-
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { floatingAnimation } from "./Home";
+import { glowAnimation } from "./Home";
+import Link from "next/link";
+import { div } from "framer-motion/client";
+const RoundsAndRules = () => {
     return (
-        <div className=" bg-rounds-bg bg-cover  lg:bg-center text-white " id='prizes'>
-            {/* Animated header */}
-            <motion.div
-                className="text-center mb-16 pt-8"
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-            >
-                <motion.h1
-                    className="lg:text-[90px] text-[70px] mb-8  tracking-wider font-custom1"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                    animate={glowAnimation}
-                >
-                    Rounds and Rules
-                </motion.h1>
-
-                <motion.div
-                    className="space-y-2 flex flex-start lg:justify-start justify-center"
-                    variants={{
-                        hidden: {},
-                        visible: {
-                            transition: {
-                                staggerChildren: 0.2
-                            }
-                        }
-                    }}
-                    initial="hidden"
-                    animate="visible"
-                >
-                <div className="flex justify-center items-center space-x-16">
-                    <div className='w-1/2 text-right'>
-                    <Image
-                            src="/images/dialog03.png"
-                            alt='Frame1'
-                            width={400}
-                            height={400}
-                        />
-                    </div>
-
-                    <div className='w-1/2 flex justify-center'>
-                        <Image
-                            src="/images/dialog03.png"
-                            alt='Frame1'
-                            width={400}
-                            height={400}
-                        />
-                    </div>
-
-                    <div className='w-1/2 '>
-                    <Image
-                            src="/images/dialog03.png"
-                            alt='Frame1'
-                            width={400}
-                            height={400}
-                        />
-                    </div>
+        <div className=" bg-rounds-bg bg-cover bg-center text-white ">
+            <div className="flex flex-col items-center justify-center text-center">
+                <div className="flex justify-center">
+                    <motion.h1
+                        animate={glowAnimation}
+                        className="text-[70px] lg:text-[120px]  text-white font-custom1 mt-16">
+                        Rounds and Rules
+                    </motion.h1>
                 </div>
-                </motion.div>
-            </motion.div>
 
-            {/* Main content section */}
-            <div className="flex justify-between items-center mx-auto none lg:block">
-                {/* Animated message box */}
                 <motion.div
-                    className="w-1/2 "
-                    initial={{ opacity: 0, x: -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className=" text-white p-8 rounded-lg shadow-lg"
                 >
 
-                    <motion.div
-                        className="hidden lg:flex justify-end items-end "
-                        animate={floatingAnimation}
-                        transition={{
-                            duration: 4,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                        }}
-                    >
-                    </motion.div>
+                    <div className="flex flex-wrap lg:grid grid-cols-3 lg:gap-36 gap-11 mb-10 translate-x-16 lg:translate-x-0">
+                        <div className="flex flex-col justify-center">
+
+                            <Image
+                                src="/images/round.png"
+                                alt="Rounds for Codewizard"
+                                width={260}
+                                height={300}
+                                className="w-56 lg:w-72"
+                            />
+                            <div className="flex justify-center items-center text-center mt-8   w-56 lg:w-72">
+                                <Link href='https://forms.gle/SxeRBFGbFLFvaUK46' target="_blank">
+                                    <Image
+                                        src='/images/registerBtn.png'
+                                        alt="Register Btn"
+                                        width={200}
+                                        height={200}
+                                    />
+                                </Link>
+                            </div>
+
+                        </div>
+                        <motion.div className="hidden lg:flex justify-end items-end "
+                            animate={floatingAnimation}
+                            transition={{
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}>
+                            <Image
+                                src='/images/dialog04.png'
+                                alt="Dialog04"
+                                width={300}
+                                height={200}
+                                className="w-56 lg:w-72"
+                            />
+                        </motion.div>
+                        <div>
+                            <Image
+                                src="/images/rule.png"
+                                alt="Rounds for Codewizard"
+                                width={260}
+                                height={200}
+                                className="w-56 lg:w-72"
+                            />
+                        </div>
+                    </div>
 
                 </motion.div>
             </div>
@@ -100,4 +78,4 @@ const RoundesAndRules: React.FC = () => {
     );
 };
 
-export default RoundesAndRules;
+export default RoundsAndRules;

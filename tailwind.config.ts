@@ -26,7 +26,7 @@ export default {
                 'border-bg' : "url('/images/border.png')" ,
                 'prize-bg' : "url('/images/prizesbg.png')" ,
                 'contact-bg' : "url('/images/contactbg.png')" ,
-                'rounds-bg' : "url('/images/SponsorBack.png')" ,
+                'rounds-bg' : "url('/images/speech2.png')" ,
             },
       backgroundSize:{
         '100%': '100%',
