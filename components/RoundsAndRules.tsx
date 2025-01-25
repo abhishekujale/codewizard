@@ -4,7 +4,6 @@ import Image from "next/image";
 import { floatingAnimation } from "./Home";
 import { glowAnimation } from "./Home";
 import Link from "next/link";
-import { div } from "framer-motion/client";
 const RoundsAndRules = () => {
     return (
         <div className=" bg-rounds-bg bg-cover bg-center text-white ">
