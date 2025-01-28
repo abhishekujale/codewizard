@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import { floatingAnimation, glowAnimation } from './Home';
@@ -10,9 +10,47 @@ const RewardsPage: React.FC = () => {
         visible: { opacity: 1, x: 0 }
     };
 
+     const [isMobile, setIsMobile] = useState(false);
+
+     useEffect(() => {
+             const checkScreenSize = () => {
+                 setIsMobile(window.innerWidth < 768);
+             };
+     
+             
+             checkScreenSize();
+             window.addEventListener('resize', checkScreenSize);
+             
+             return () => window.removeEventListener('resize', checkScreenSize);
+         }, []);
+
+         const backgroundStyles = {
+            mobile: {
+                backgroundImage: 'url(/images/pPhone.png)',
+                backgroundSize: 'cover',
+                padding: '0',
+                margin: '0',
+                height: '100%',
+            },
+            desktop: {
+                backgroundImage: 'url(/images/prizebg.png)',
+                backgroundSize: 'cover',
+                height: '150%',
+            }
+        };
+    
+
 
     return (
-        <div className=" bg-prize-bg bg-cover  lg:bg-center text-white " id='prizes'>
+        <div className="w-full text-white"
+        style={{
+            ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+        }}
+        
+        id='prizes'>
             {/* Animated header */}
             <motion.div
                 className="text-center mb-16 pt-8"

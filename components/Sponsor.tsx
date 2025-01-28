@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -14,8 +14,45 @@ const sponsorsImages = [
 
 ]
 export default function SponsorFrame() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+            const checkScreenSize = () => {
+                setIsMobile(window.innerWidth < 768);
+            };
+    
+            
+            checkScreenSize();
+            window.addEventListener('resize', checkScreenSize);
+            
+            return () => window.removeEventListener('resize', checkScreenSize);
+        }, []);
+    
+    
+        const backgroundStyles = {
+            mobile: {
+                backgroundImage: 'url(/images/sPhone.png)',
+                backgroundSize: 'cover',
+                padding: '0',
+                margin: '0',
+                height: '100%',
+            },
+            desktop: {
+                backgroundImage: 'url(/images/sponserbg.png)',
+                backgroundSize: 'cover',
+                height: '150%',
+            }
+        };
     return (
-        <div className="relative min-h-screen  p-8 bg-sponsor-bg bg-center bg-cover" id='sponsor'>
+        <div className="w-full"
+        style={{
+            ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+        }}
+        
+        id='sponsor'>
             <motion.div
                 className="w-full  p-8 rounded-lg shadow-2xl flex items-center text-center justify-center"
                 animate={{

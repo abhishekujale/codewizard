@@ -28,10 +28,11 @@ export default function Home() {
         <div className="h-screen w-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-[#FFB000] scrollbar-track-black overflow-x-hidden">
           <HomePage />
           <AboutEvent />
+          <RoundesAndRules />
           <RewardsPage />
 
           <Sponsor />
-          <RoundesAndRules />
+          
           <Faqsection />
           <Footer />
 

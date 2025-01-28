@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Navbar from './Navbar';
 
-
 export const floatingAnimation = {
     y: [-10, 10, 0],
     transition: {
@@ -15,9 +14,7 @@ export const floatingAnimation = {
     },
 };
 
-
 export const glowAnimation = {
-
     textShadow: [
         "0 0 10px rgba(255, 183, 0, 0.5)",
         "0 0 20px rgba(255, 183, 0, 0.8)",
@@ -28,10 +25,10 @@ export const glowAnimation = {
         repeat: Infinity,
         repeatType: "reverse" as const,
     },
-
 };
 
 const HomePage = () => {
+    const [isMobile, setIsMobile] = useState(false);
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -39,7 +36,36 @@ const HomePage = () => {
         seconds: 0,
     });
 
-    // Set your target date here
+    
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
+
+    const backgroundStyles = {
+        mobile: {
+            backgroundImage: 'url(/images/hPhone.png)',
+            backgroundSize: 'cover',
+            padding: '0',
+            margin: '0',
+            height: '100%',
+        },
+        desktop: {
+            backgroundImage: 'url(/images/homebg.png)',
+            backgroundSize: 'cover',
+            height: '150%',
+        }
+    };
+
+    // Countdown timer setup
     const targetDate = new Date('2025-02-26').getTime();
 
     useEffect(() => {
@@ -63,7 +89,6 @@ const HomePage = () => {
         return () => clearInterval(timer);
     }, [targetDate]);
 
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -80,38 +105,37 @@ const HomePage = () => {
         visible: { y: 0, opacity: 1 },
     };
 
-    // Floating animation
-
-
-
     return (
         <motion.div
             id='home'
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="bg-Home-bg bg-cover bg-center"
+            className="w-full"
+            style={{
+                ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                width: '100%',
+            }}
         >
             <Navbar />
 
-
             {/* Main Content */}
-            <main className="relative z-10 flex items- justify-center container  px-4 pt-12 text-center">
+            <main className="relative z-10 flex items- justify-center container px-4 pt-12 text-center">
                 <div>
-
                     <div>
                         <motion.h1
                             animate={glowAnimation}
-                            className="text-[100px] lg:text-[160px]  text-white font-custom1    mt-16"
-
+                            className="text-[100px] lg:text-[160px] text-white font-custom1 mt-16"
                         >
                             CodeWizard
                         </motion.h1>
                         <motion.h1
                             animate={floatingAnimation}
-                            className="hidden text-[25px] lg:text-[40px]  text-[#F3AA06] font-custom2 -mt-32  translate-x-44"
+                            className="hidden text-[25px] lg:text-[40px] text-[#F3AA06] font-custom2 -mt-32 translate-x-44"
                         >
-                            -&nbsp;  Where Magic Meets Logic
+                            -&nbsp; Where Magic Meets Logic
                         </motion.h1>
                     </div>
 
@@ -133,11 +157,11 @@ const HomePage = () => {
                                 >
                                     <motion.div
                                         animate={floatingAnimation}
-                                        className="text-[40px] lg:text-[90px]  font-bold text-white font-custom1"
+                                        className="text-[40px] lg:text-[90px] font-bold text-white font-custom1"
                                     >
                                         {String(item.value).padStart(2, '0')}
                                     </motion.div>
-                                    <div className="text-[38px] lg:text-[55px]  text-white font-custom1">{item.label}</div>
+                                    <div className="text-[38px] lg:text-[55px] text-white font-custom1">{item.label}</div>
                                 </motion.div>
                                 {index < 3 && (
                                     <motion.div
@@ -160,9 +184,8 @@ const HomePage = () => {
                                     alt="Rocket"
                                     width={300}
                                     height={300}
-                                    className='-translate-y-40  -translate-x-24'
+                                    className='-translate-y-40 -translate-x-24'
                                 />
-
                             </motion.div>
 
                             <Image
@@ -170,13 +193,10 @@ const HomePage = () => {
                                 alt="Rocket"
                                 width={300}
                                 height={300}
-                                className='-translate-y-40  translate-x-8'
+                                className='-translate-y-40 translate-x-8'
                             />
                         </div>
                     </motion.div>
-
-
-
                 </div>
             </main>
         </motion.div>

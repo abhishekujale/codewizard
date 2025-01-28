@@ -1,17 +1,78 @@
-'use client'
+"use client"
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { floatingAnimation } from "./Home";
 import { glowAnimation } from "./Home";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
 const RoundsAndRules = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    const [currentView, setCurrentView] = useState<'rounds' | 'rules'>('rounds');
+
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
+    const NavigationArrow = ({ direction, onClick }: { direction: 'left' | 'right', onClick: () => void }) => (
+        <motion.button
+            onClick={onClick}
+            className="p-2 rounded-full bg-black/30 backdrop-blur-sm shadow-glow"
+            whileHover={{ scale: 1.1, backgroundColor: 'rgba(0,0,0,0.5)' }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            style={{
+                textShadow: "0 0 10px rgba(255, 183, 0, 0.5)",
+            }}
+        >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12 text-[#F3AA06]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+            >
+                {direction === 'left' ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                )}
+            </svg>
+        </motion.button>
+    );
+
+    const backgroundStyles = {
+        mobile: {
+            backgroundImage: 'url(/images/rPhone.png)',
+            backgroundSize: 'cover',
+            padding: '0',
+            margin: '0',
+            height: '100%',
+        },
+        desktop: {
+            backgroundImage: 'url(/images/rulesbg.png)',
+            backgroundSize: 'cover',
+            height: '150%',
+        }
+    };
+
     return (
-        <div className=" bg-rounds-bg bg-cover bg-center text-white ">
+        <div className="w-full" style={{
+            ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            width: '100%',
+        }}>
             <div className="flex flex-col items-center justify-center text-center">
                 <div className="flex justify-center">
                     <motion.h1
                         animate={glowAnimation}
-                        className="text-[70px] lg:text-[120px]  text-white font-custom1 mt-16">
+                        className="text-[70px] lg:text-[120px] text-white font-custom1 mt-16">
                         Rounds and Rules
                     </motion.h1>
                 </div>
@@ -20,57 +81,103 @@ const RoundsAndRules = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className=" text-white p-8 rounded-lg shadow-lg"
+                    className="text-white p-8 rounded-lg shadow-lg"
                 >
+                    {isMobile ? (
+                        <div className="flex flex-col items-center gap-8">
+                            <div className="flex items-center gap-4">
+                                {currentView === 'rules' && (
+                                    <NavigationArrow direction="left" onClick={() => setCurrentView('rounds')} />
+                                )}
+                                
+                                {currentView === 'rounds' ? (
+                                    <Image
+                                        src="/images/round.png"
+                                        alt="Rounds"
+                                        width={260}
+                                        height={300}
+                                        className="w-56"
+                                    />
+                                ) : (
+                                    <Image
+                                        src="/images/rule.png"
+                                        alt="Rules"
+                                        width={260}
+                                        height={300}
+                                        className="w-56"
+                                    />
+                                )}
 
-                    <div className="flex flex-wrap lg:grid grid-cols-3 lg:gap-36 gap-11 mb-10 translate-x-16 lg:translate-x-0">
-                        <div className="flex flex-col justify-center">
+                                {currentView === 'rounds' && (
+                                    <NavigationArrow direction="right" onClick={() => setCurrentView('rules')} />
+                                )}
+                            </div>
 
-                            <Image
-                                src="/images/round.png"
-                                alt="Rounds for Codewizard"
-                                width={260}
-                                height={300}
-                                className="w-56 lg:w-72"
-                            />
-                            <div className="flex justify-center items-center text-center mt-8   w-56 lg:w-72">
+                            <motion.div
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
                                 <Link href='https://forms.gle/SxeRBFGbFLFvaUK46' target="_blank">
                                     <Image
                                         src='/images/registerBtn.png'
-                                        alt="Register Btn"
+                                        alt="Register Button"
                                         width={200}
                                         height={200}
                                     />
                                 </Link>
+                            </motion.div>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-3 gap-36 mb-10">
+                            <div className="flex flex-col justify-center">
+                                <Image
+                                    src="/images/round.png"
+                                    alt="Rounds"
+                                    width={260}
+                                    height={300}
+                                    className="w-72"
+                                />
+                                <div className="mt-8">
+                                    <motion.div
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <Link href='https://forms.gle/SxeRBFGbFLFvaUK46' target="_blank">
+                                            <Image
+                                                src='/images/registerBtn.png'
+                                                alt="Register Button"
+                                                width={200}
+                                                height={200}
+                                            />
+                                        </Link>
+                                    </motion.div>
+                                </div>
                             </div>
-
+                            
+                            <motion.div 
+                                className="flex justify-end items-end"
+                                animate={floatingAnimation}
+                            >
+                                <Image
+                                    src='/images/dialog04.png'
+                                    alt="Dialog"
+                                    width={300}
+                                    height={200}
+                                    className="w-72"
+                                />
+                            </motion.div>
+                            
+                            <div className="flex flex-col justify-center">
+                                <Image
+                                    src="/images/rule.png"
+                                    alt="Rules"
+                                    width={260}
+                                    height={200}
+                                    className="w-72"
+                                />
+                            </div>
                         </div>
-                        <motion.div className="hidden lg:flex justify-end items-end "
-                            animate={floatingAnimation}
-                            transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}>
-                            <Image
-                                src='/images/dialog04.png'
-                                alt="Dialog04"
-                                width={300}
-                                height={200}
-                                className="w-56 lg:w-72"
-                            />
-                        </motion.div>
-                        <div>
-                            <Image
-                                src="/images/rule.png"
-                                alt="Rounds for Codewizard"
-                                width={260}
-                                height={200}
-                                className="w-56 lg:w-72"
-                            />
-                        </div>
-                    </div>
-
+                    )}
                 </motion.div>
             </div>
         </div>
