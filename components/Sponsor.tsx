@@ -17,42 +17,42 @@ export default function SponsorFrame() {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-            const checkScreenSize = () => {
-                setIsMobile(window.innerWidth < 768);
-            };
-    
-            
-            checkScreenSize();
-            window.addEventListener('resize', checkScreenSize);
-            
-            return () => window.removeEventListener('resize', checkScreenSize);
-        }, []);
-    
-    
-        const backgroundStyles = {
-            mobile: {
-                backgroundImage: 'url(/images/sPhone.png)',
-                backgroundSize: 'cover',
-                padding: '0',
-                margin: '0',
-                height: '100%',
-            },
-            desktop: {
-                backgroundImage: 'url(/images/sponserbg.png)',
-                backgroundSize: 'cover',
-                height: '150%',
-            }
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth < 768);
         };
+
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
+
+    const backgroundStyles = {
+        mobile: {
+            backgroundImage: 'url(/images/sPhone.png)',
+            backgroundSize: 'cover',
+            padding: '0',
+            margin: '0',
+            height: '100%',
+        },
+        desktop: {
+            backgroundImage: 'url(/images/sponserbg.png)',
+            backgroundSize: 'cover',
+            height: '150%',
+        }
+    };
     return (
         <div className="w-full"
-        style={{
-            ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            width: '100%',
-        }}
-        
-        id='sponsor'>
+            style={{
+                ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                width: '100%',
+            }}
+
+            id='sponsor'>
             <motion.div
                 className="w-full  p-8 rounded-lg shadow-2xl flex items-center text-center justify-center"
                 animate={{
@@ -76,7 +76,7 @@ export default function SponsorFrame() {
                     </motion.h2>
 
                     {/* Frames container */}
-                    <div className="flex flex-wrap  text-center justify-center items-center gap-4">
+                    <div className="flex flex-wrap  text-center justify-center items-center gap-8">
                         {sponsorsImages.map((frame, index) => (
                             <motion.div
                                 key={index}
@@ -139,7 +139,7 @@ export default function SponsorFrame() {
                     alt='Frame1'
                     width={250}
                     height={250}
-                    className='translate-x-10 border-b-white translate-y-10'
+                    className='border-b-white translate-y-20'
                 />
             </div>
 

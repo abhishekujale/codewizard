@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { div } from 'framer-motion/client';
 
 
 
@@ -65,14 +66,14 @@ const Navbar = () => {
     return (
         <nav className="bg-[#251300] border-b border-[#3d3d3d] fixed z-50 w-screen">
             <div className="max-w-6xl mx-auto px-4">
-                <div className="flex justify-between items-center h-20">
+                <div className="flex justify-between items-center h-24">
                     <div className='lg:-mx-40 mx-0 md:mx-0'>
                         <Link href="#">
                             <Image
                                 src="/images/logo.png"
                                 alt="Acses Logo Design"
-                                width={150}
-                                height={150}
+                                width={180}
+                                height={180}
                                 className='-my-1.3'
                             />
                         </Link>
@@ -111,10 +112,15 @@ const Navbar = () => {
                 {/* Mobile menu */}
                 {isOpen && (
                     <div className="md:hidden text-center">
-                        <div className="px-2 pt-2 pb-3 space-y-1 bg-[#1a1a1a]">
+                        <div className="px-2 pt-2 pb-3 space-y-1 bg-[#251300]">
                             {
                                 allComp.map((item, index) => (
-                                    <Card text={allComp[index].text} link={allComp[index].link} key={index} largeDevice={false} />
+                                    <div onClick={() => {
+                                        toggleMenu();
+                                    }}>
+                                        <Card text={allComp[index].text} link={allComp[index].link} key={index} largeDevice={false} />
+                                    </div>
+
                                 ))
                             }
                         </div>

@@ -30,8 +30,23 @@ export default {
             },
       backgroundSize:{
         '100%': '100%',
-        '50%' : '50%'
-      }
+        '50%' : '50%',
+        '25%' : '25%',
+      },
+      keyframes: {
+        spinWithOpacity: {
+          '0%, 100%': { opacity: '1' }, // Maximum opacity when the winged image is close
+          '50%': { opacity: '0.2' },   // Minimum opacity when the winged image is far
+        },
+        spinAround: {
+          '0%': { transform: 'rotate(0deg) translateX(170px) rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg) translateX(170px) rotate(-360deg)' },
+        },
+      },
+      animation: {
+        spinAround: 'spinAround 1.5s linear infinite',
+        spinWithOpacity: 'spinWithOpacity 2s linear infinite',
+      },
     },
   },
  plugins: [

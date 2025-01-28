@@ -10,47 +10,47 @@ const RewardsPage: React.FC = () => {
         visible: { opacity: 1, x: 0 }
     };
 
-     const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-     useEffect(() => {
-             const checkScreenSize = () => {
-                 setIsMobile(window.innerWidth < 768);
-             };
-     
-             
-             checkScreenSize();
-             window.addEventListener('resize', checkScreenSize);
-             
-             return () => window.removeEventListener('resize', checkScreenSize);
-         }, []);
-
-         const backgroundStyles = {
-            mobile: {
-                backgroundImage: 'url(/images/pPhone.png)',
-                backgroundSize: 'cover',
-                padding: '0',
-                margin: '0',
-                height: '100%',
-            },
-            desktop: {
-                backgroundImage: 'url(/images/prizebg.png)',
-                backgroundSize: 'cover',
-                height: '150%',
-            }
+    useEffect(() => {
+        const checkScreenSize = () => {
+            setIsMobile(window.innerWidth < 768);
         };
-    
+
+
+        checkScreenSize();
+        window.addEventListener('resize', checkScreenSize);
+
+        return () => window.removeEventListener('resize', checkScreenSize);
+    }, []);
+
+    const backgroundStyles = {
+        mobile: {
+            backgroundImage: 'url(/images/pPhone.png)',
+            backgroundSize: 'cover',
+            padding: '0',
+            margin: '0',
+            height: '100%',
+        },
+        desktop: {
+            backgroundImage: 'url(/images/prizebg.png)',
+            backgroundSize: 'cover',
+            height: '150%',
+        }
+    };
+
 
 
     return (
         <div className="w-full text-white"
-        style={{
-            ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            width: '100%',
-        }}
-        
-        id='prizes'>
+            style={{
+                ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                width: '100%',
+            }}
+
+            id='prizes'>
             {/* Animated header */}
             <motion.div
                 className="text-center mb-16 pt-8"
@@ -128,7 +128,7 @@ const RewardsPage: React.FC = () => {
                         alt='Frame1'
                         width={350}
                         height={350}
-                        className=' translate-y-60 border-b-white -translate-x-11 hidden lg:block'
+                        className=' border-b-white -translate-x-11 hidden lg:block'
                     />
                     <motion.div
                         className="hidden lg:flex justify-end items-end "
@@ -144,7 +144,7 @@ const RewardsPage: React.FC = () => {
                             alt='Frame1'
                             width={400}
                             height={400}
-                            className='-translate-y-64 -translate-x-28'
+                            className='-translate-y-96 -translate-x-28'
                         />
 
                     </motion.div>

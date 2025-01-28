@@ -103,7 +103,7 @@ export default function Faqsection() {
             {
               question: "Can I participate in a team?",
               answer:
-                "Yes, the event allows team participation with a maximum of three members per team.",
+                "No,the event allows individual participation",
             },
           ].map((faq, index) => (
             <div

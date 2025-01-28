@@ -36,16 +36,16 @@ const HomePage = () => {
         seconds: 0,
     });
 
-    
+
     useEffect(() => {
         const checkScreenSize = () => {
             setIsMobile(window.innerWidth < 768);
         };
 
-        
+
         checkScreenSize();
         window.addEventListener('resize', checkScreenSize);
-        
+
         return () => window.removeEventListener('resize', checkScreenSize);
     }, []);
 
@@ -66,7 +66,7 @@ const HomePage = () => {
     };
 
     // Countdown timer setup
-    const targetDate = new Date('2025-02-26').getTime();
+    const targetDate = new Date('2025-02-22').getTime();
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -127,7 +127,7 @@ const HomePage = () => {
                     <div>
                         <motion.h1
                             animate={glowAnimation}
-                            className="text-[100px] lg:text-[160px] text-white font-custom1 mt-16"
+                            className="text-[100px] lg:text-[160px] text-white font-custom1 mt-28"
                         >
                             CodeWizard
                         </motion.h1>
@@ -142,7 +142,7 @@ const HomePage = () => {
                     {/* Countdown Timer */}
                     <motion.div
                         variants={containerVariants}
-                        className="flex justify-center gap-3 lg:gap-8 mt-48 lg:translate-x-40 lg:translate-y-36"
+                        className="flex justify-center gap-3 lg:gap-8 mt-48 lg:translate-x-40 lg:translate-y-64"
                     >
                         {[
                             { label: 'Days', value: timeLeft.days },
