@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+
 export default function Faqsection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<string>("Choose The question");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
 
   const toggleFaq = (index: number, answer: string) => {
     if (index === selectedIndex) {
@@ -18,7 +18,6 @@ export default function Faqsection() {
     }
   };
 
-
   // Intersection Observer to trigger animations
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,17 +27,18 @@ export default function Faqsection() {
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current; // Capture the ref value here
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (currentRef) observer.unobserve(currentRef); // Use the captured ref in cleanup
     };
-  }, []);
+  }, []); // Empty dependency array means this effect runs once on mount
 
   return (
-
     <div
       id="faq"
       ref={sectionRef}
@@ -60,8 +60,7 @@ export default function Faqsection() {
 
       {/* Heading */}
       <h1
-        className={`font-custom1 text-white text-[80px] sm:text-[70px] md:text-[90px] lg:text-[130px] mb-8 ${isVisible ? "animate-fadeIn" : "opacity-0"
-          }`}
+        className={`font-custom1 text-white text-[80px] sm:text-[70px] md:text-[90px] lg:text-[130px] mb-8 ${isVisible ? "animate-fadeIn" : "opacity-0"}`}
       >
         F.A.Q.s
       </h1>
@@ -119,18 +118,14 @@ export default function Faqsection() {
             >
               <div>{faq.question}</div>
             </div>
-
           ))}
         </div>
       </div>
 
       {/* Answer Box */}
       <div
-        className={`relative w-full max-w-md font-custom2 sm:max-w-lg lg:max-w-2xl bg-[#FBAA4B] text-[#5C3317] font-medium p-6 rounded-lg shadow-md mt-8 text-center text-2xl sm:text-3xl md:text-4xl transition-all duration-500 ease-in-out transform ${selectedAnswer ? "opacity-100 scale-100" : "opacity-0 scale-75"
-          }`}
+        className={`relative w-full max-w-md font-custom2 sm:max-w-lg lg:max-w-2xl bg-[#FBAA4B] text-[#5C3317] font-medium p-6 rounded-lg shadow-md mt-8 text-center text-2xl sm:text-3xl md:text-4xl transition-all duration-500 ease-in-out transform ${selectedAnswer ? "opacity-100 scale-100" : "opacity-0 scale-75"}`}
       >
-
-
         {/* The actual selected answer text with a margin top for gap */}
         <div className="mt-6">{selectedAnswer}</div>
       </div>

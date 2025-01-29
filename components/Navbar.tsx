@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { div } from 'framer-motion/client';
 
 
 
@@ -39,7 +38,7 @@ const Card = ({ text, link, largeDevice }: navComponents) => {
     return (
         <div className='text-center cursor-pointer navContainer'>
 
-            <Link href={link} className="text-[#FFB000] hover:text-[#FFB000] font-custom1 text-4xl">
+            <Link href={link} className="text-[#FFB000] hover:text-[#FFB000] font-custom1 text-4xl" >
                 {text}
 
                 {largeDevice && (<Image
@@ -67,7 +66,7 @@ const Navbar = () => {
         <nav className="bg-[#251300] border-b border-[#3d3d3d] fixed z-50 w-screen">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center h-24">
-                    <div className='lg:-mx-40 mx-0 md:mx-0'>
+                    <div className='lg:-mx-40 mx-0 sm:mx-0'>
                         <Link href="#">
                             <Image
                                 src="/images/logo.png"
@@ -82,7 +81,7 @@ const Navbar = () => {
 
 
                     {/* Desktop menu */}
-                    <div className="hidden md:flex items-center space-x-16 -mx-28">
+                    <div className="hidden lg:flex items-center space-x-16 -mx-28">
                         {
                             allComp.map((item, index) => (
 
@@ -94,7 +93,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile menu button */}
-                    <div className="md:hidden flex items-center">
+                    <div className="lg:hidden flex items-center">
                         <button
                             onClick={toggleMenu}
                             className="text-[#ffd700] hover:text-[#ffed4a] focus:outline-none"
@@ -111,14 +110,14 @@ const Navbar = () => {
 
                 {/* Mobile menu */}
                 {isOpen && (
-                    <div className="md:hidden text-center">
+                    <div className="lg:hidden text-center">
                         <div className="px-2 pt-2 pb-3 space-y-1 bg-[#251300]">
                             {
                                 allComp.map((item, index) => (
-                                    <div onClick={() => {
+                                    <div key={index} onClick={() => {
                                         toggleMenu();
                                     }}>
-                                        <Card text={allComp[index].text} link={allComp[index].link} key={index} largeDevice={false} />
+                                        <Card text={allComp[index].text} link={allComp[index].link} largeDevice={false} />
                                     </div>
 
                                 ))

@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
@@ -29,10 +28,12 @@ const Loading = () => {
 
                     {/* Image container */}
                     <div className="inset-2 rounded-full overflow-hidden flex items-center justify-center">
-                        <img
+                        <Image
                             src="/images/loaderLogo.png"
                             alt="Loading content"
                             className="w-44 h-44 object-cover"
+                            width={200}
+                            height={200}
                         />
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import AboutEvent from "@/components/AboutEvent";
 import Faqsection from "@/components/Faqsection";
@@ -11,7 +11,8 @@ import RewardsPage from "@/components/Prizes";
 import RoundesAndRules from "@/components/RoundsAndRules";
 import Loading from "@/components/Loading";
 
-export default function Home() {
+// Create a separate component for the content that uses useSearchParams
+function PageContent() {
   const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -25,10 +26,8 @@ export default function Home() {
       setTimeout(() => setIsLoading(false), 800);
     };
 
-    // Add event listeners for navigation events
     window.addEventListener('beforeunload', handleNavigationStart);
 
-    // Create a navigation observer
     const navigationObserver = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if (entry.entryType === 'navigation') {
@@ -39,21 +38,12 @@ export default function Home() {
 
     navigationObserver.observe({ entryTypes: ['navigation'] });
 
-    // Watch for pathname or search params changes
-    const handleRouteChange = () => {
-      handleNavigationStart();
-      // Add a small delay to simulate navigation
-      setTimeout(handleNavigationEnd, 100);
-    };
-
-    // Cleanup function
     return () => {
       window.removeEventListener('beforeunload', handleNavigationStart);
       navigationObserver.disconnect();
     };
-  }, [pathname, searchParams]); // Re-run effect when pathname or search params change
+  }, [pathname, searchParams]);
 
-  // Monitor soft navigation (client-side navigation)
   useEffect(() => {
     setIsLoading(true);
     const timer = setTimeout(() => setIsLoading(false), 1500);
@@ -76,5 +66,14 @@ export default function Home() {
         </div>
       </main>
     </div>
+  );
+}
+
+// Main component with Suspense boundary
+export default function Home() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <PageContent />
+    </Suspense>
   );
 }

@@ -127,7 +127,7 @@ const HomePage = () => {
                     <div>
                         <motion.h1
                             animate={glowAnimation}
-                            className="text-[100px] lg:text-[160px] text-white font-custom1 mt-28"
+                            className="text-[100px] lg:text-[180px] text-white font-custom1 mt-28"
                         >
                             CodeWizard
                         </motion.h1>
@@ -142,7 +142,7 @@ const HomePage = () => {
                     {/* Countdown Timer */}
                     <motion.div
                         variants={containerVariants}
-                        className="flex justify-center gap-3 lg:gap-8 mt-48 lg:translate-x-40 lg:translate-y-64"
+                        className="flex justify-center gap-3 lg:gap-8 mt-48 lg:translate-x-40 lg:translate-y-40"
                     >
                         {[
                             { label: 'Days', value: timeLeft.days },
@@ -157,7 +157,7 @@ const HomePage = () => {
                                 >
                                     <motion.div
                                         animate={floatingAnimation}
-                                        className="text-[40px] lg:text-[90px] font-bold text-white font-custom1"
+                                        className="text-[40px] lg:text-[110px] font-bold text-white font-custom1"
                                     >
                                         {String(item.value).padStart(2, '0')}
                                     </motion.div>
@@ -166,7 +166,7 @@ const HomePage = () => {
                                 {index < 3 && (
                                     <motion.div
                                         variants={itemVariants}
-                                        className="text-[40px] lg:text-[90px] font-bold text-white"
+                                        className="text-[40px] lg:text-[100px] font-bold text-white"
                                     >
                                         :
                                     </motion.div>
