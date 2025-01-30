@@ -7,7 +7,6 @@ import { GrLocation } from "react-icons/gr";
 import { IoIosMail } from "react-icons/io";
 import { IoEarthOutline } from "react-icons/io5";
 import { motion } from 'framer-motion';
-import { IoIosHeart } from "react-icons/io";
 export default function Footer() {
     const containerVariants = {
         hidden: { opacity: 0 },

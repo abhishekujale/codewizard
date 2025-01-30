@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { floatingAnimation } from './Home';
 const Loading = () => {
     return (
         <div className="flex items-center justify-center h-screen bg-black scrollbar-track-black overflow-x-hidden">
