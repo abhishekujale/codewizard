@@ -7,7 +7,7 @@ import { GrLocation } from "react-icons/gr";
 import { IoIosMail } from "react-icons/io";
 import { IoEarthOutline } from "react-icons/io5";
 import { motion } from 'framer-motion';
-
+import { IoIosHeart } from "react-icons/io";
 export default function Footer() {
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -67,7 +67,7 @@ export default function Footer() {
                             {[
                                 { Icon: GrInstagram, href: "https://www.instagram.com/acses.kitcoek/" },
                                 { Icon: FaLinkedinIn, href: "https://in.linkedin.com/company/acses-kitcoek" },
-                                { Icon: FaFacebookF, href: "https://in.linkedin.com/company/acses-kitcoek" },
+                                { Icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=100064058348227" },
                                 { Icon: GrLocation, href: "https://maps.app.goo.gl/7cVXsxj2U4o8mFV87" }
                             ].map((social, index) => (
                                 <motion.a
@@ -123,7 +123,16 @@ export default function Footer() {
                                         <p className="text-[20px]">{item}</p>
                                     </Link>
                                 </motion.li>
+
+
                             ))}
+                            <motion.li
+                                whileHover={{ x: 10, color: '#FFA800' }}
+                                transition={{ duration: 0.2 }}>
+                                <Link href='https://drive.google.com/file/d/1dh_qfDS945OX8BOwopzqJJwNMZJ5laSD/view?usp=sharing'>
+                                    <p className="text-[20px]">SponSor Brochure</p>
+                                </Link>
+                            </motion.li>
                         </ul>
                     </motion.div>
 
@@ -165,10 +174,10 @@ export default function Footer() {
                 >
                     <p>
                         Copyright &copy; {new Date().getFullYear()} All rights reserved | Made
-                        with <i className="fa fa-heart text-red-600"></i> by team ACSES
+                        with ❤️ by team ACSES
                     </p>
                 </motion.div>
             </div>
-        </motion.footer>
+        </motion.footer >
     );
 }

@@ -41,7 +41,7 @@ export default function AboutEvent() {
           }`}
       >
         <Image
-          src="/images/Poster.png"
+          src="/poster.svg"
           alt="Event Poster"
           className="w-full h-auto rounded-md object-contain"
           width={200}
