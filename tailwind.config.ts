@@ -27,6 +27,7 @@ export default {
                 'prize-bg' : "url('/images/prizesbg.png')" ,
                 'contact-bg' : "url('/images/contactbg.png')" ,
                 'rounds-bg' : "url('/images/speech2.png')" ,
+                'event-bg' : "url('/images/eventDetails.png')" ,
             },
       backgroundSize:{
         '100%': '100%',
@@ -44,7 +45,7 @@ export default {
         },
       },
       animation: {
-        spinAround: 'spinAround 1.5s linear infinite',
+        spinAround: 'spinAround 2s linear infinite',
         spinWithOpacity: 'spinWithOpacity 2s linear infinite',
       },
     },

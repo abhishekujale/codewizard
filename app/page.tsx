@@ -10,7 +10,7 @@ import Sponsor from "@/components/Sponsor";
 import RewardsPage from "@/components/Prizes";
 import RoundesAndRules from "@/components/RoundsAndRules";
 import Loading from "@/components/Loading";
-
+import EventDetailsPage from "@/components/About";
 // Create a separate component for the content that uses useSearchParams
 function PageContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,20 +51,23 @@ function PageContent() {
   }, [pathname, searchParams]);
 
   return (
-    <div>
-      {isLoading && <Loading />}
 
-      <main>
-        <div className="h-screen w-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-[#FFB000] scrollbar-track-black overflow-x-hidden bg-black">
-          <HomePage />
-          <AboutEvent />
-          <RoundesAndRules />
-          <RewardsPage />
-          <Sponsor />
-          <Faqsection />
-          <Footer />
-        </div>
-      </main>
+    <div>
+      {isLoading ? <Loading />
+        :
+        <main>
+          <div className="h-screen w-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-[#FFB000] scrollbar-track-black overflow-x-hidden bg-black">
+            <HomePage />
+            <AboutEvent />
+            <RoundesAndRules />
+            <RewardsPage />
+            <Sponsor />
+            <EventDetailsPage />
+            <Faqsection />
+            <Footer />
+          </div>
+        </main>
+      }
     </div>
   );
 }

@@ -16,7 +16,7 @@ interface navComponents {
 const allComp = [
     {
         text: "Home",
-        link: "#"
+        link: "/"
     },
     {
         text: "Sponsor",
@@ -67,7 +67,7 @@ const Navbar = () => {
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center h-24">
                     <div className='lg:-mx-40 mx-0 sm:mx-0'>
-                        <Link href="#">
+                        <Link href="/">
                             <Image
                                 src="/images/logo.png"
                                 alt="Acses Logo Design"
