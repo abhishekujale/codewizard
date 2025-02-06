@@ -21,7 +21,7 @@ const EventDetailsPage = () => {
     ];
 
     return (
-        <div className="relative h-screen w-screen bg-event-bg bg-cover lg:bg-center bg-no-repeat">
+        <div className="relative h-[150%] w-screen bg-event-bg bg-cover lg:bg-center bg-no-repeat">
           
             <div
                 className="absolute inset-0 z-0 lg:mt-[100px]">
