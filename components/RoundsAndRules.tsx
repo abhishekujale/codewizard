@@ -178,7 +178,7 @@ const RoundsAndRules = () => {
                                 >
                                     <Image
                                         src="/images/round.png"
-                                        alt="Rounds"
+                                        alt="Codewizards acses dialog"
                                         width={260}
                                         height={300}
                                         className="w-72"
@@ -192,7 +192,7 @@ const RoundsAndRules = () => {
                                         <Link href='https://forms.gle/SxeRBFGbFLFvaUK46' target="_blank">
                                             <Image
                                                 src='/images/registerBtn.png'
-                                                alt="Register Button"
+                                                alt="Codewizards acses Register"
                                                 width={200}
                                                 height={200}
                                             />
@@ -210,7 +210,7 @@ const RoundsAndRules = () => {
                                 >
                                     <Image
                                         src='/images/dialog04.png'
-                                        alt="Dialog"
+                                        alt="Codewizards acses dialog"
                                         width={300}
                                         height={200}
                                         className="w-72"

@@ -31,7 +31,8 @@ const IntroSpinner = () => {
                     src="/images/intrologo.png"
                     width={200}
                     height={200}
-                    alt='ACSES logo'
+                    alt="Codewizards acses Intro logo"
+
                 />
             </div>
 
@@ -40,14 +41,15 @@ const IntroSpinner = () => {
                     src="/images/circle.png"
                     width={250}
                     height={250}
-                    alt='logo circle'
+                    alt="Codewizards acses logo"
                     className='-translate-x-52'
                 />
                 <Image
                     src="/images/wingIcon.png"
                     width={90}
                     height={90}
-                    alt='logo circle'
+                    alt="Codewizards wing Icon"
+
                     className='-translate-x-64 -translate-y-5'
                 />
             </div>

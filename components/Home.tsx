@@ -181,19 +181,19 @@ const HomePage = () => {
                             >
                                 <Image
                                     src="/images/dialog.png"
-                                    alt="Rocket"
+                                    alt="Codewizards acses dialog"
                                     width={300}
                                     height={300}
-                                    className='-translate-y-40 -translate-x-24'
+                                    className='-translate-y-14 -translate-x-12'
                                 />
                             </motion.div>
 
                             <Image
                                 src="/images/harrymama.png"
-                                alt="Rocket"
+                                alt="Codewizards acses dialog"
                                 width={300}
                                 height={300}
-                                className='-translate-y-40 translate-x-8'
+                                className='-translate-y-10 translate-x-16'
                             />
                         </div>
                     </motion.div>

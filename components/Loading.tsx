@@ -30,7 +30,8 @@ const Loading = () => {
                                     }}>
                                     <Image
                                         src="/images/wingLeft.png"
-                                        alt="Spinning Image"
+                                        alt="Codewizards acses Spinning Image"
+
                                         width={50}
                                         height={50}
                                         className=''
@@ -48,7 +49,8 @@ const Loading = () => {
                                     }}>
                                     <Image
                                         src="/images/wingCircle.png"
-                                        alt="Spinning Image"
+                                        alt="Codewizards Spinner Image "
+
                                         width={50}
                                         height={50}
                                         className='translate-x-8'
@@ -66,7 +68,7 @@ const Loading = () => {
                                     }}>
                                     <Image
                                         src="/images/wingRight.png"
-                                        alt="Spinning Image"
+                                        alt="Spinning Image codewizard Acses"
                                         width={50}
                                         height={50}
                                         className='rotate-180'
@@ -81,7 +83,7 @@ const Loading = () => {
                     <div className="inset-2 rounded-full overflow-hidden flex items-center justify-center">
                         <Image
                             src="/images/loaderLogo.png"
-                            alt="Loading content"
+                            alt="Codewizards acses Loader logo"
                             className="w-44 h-44 object-cover"
                             width={200}
                             height={200}

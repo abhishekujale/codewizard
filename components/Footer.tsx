@@ -43,7 +43,7 @@ export default function Footer() {
 
     return (
         <motion.footer
-            className="bg-[#321A00] text-gray-300 py-8 font-custom1"
+            className="bg-[#251300] text-gray-300 py-8 font-custom1"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -57,7 +57,7 @@ export default function Footer() {
                             <motion.img
                                 className="h-20 mr-2 w-auto"
                                 src="/images/logo.png"
-                                alt="Logo Icon"
+                                alt="Codewizards Acses Logo"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ duration: 0.2 }}
                             />
