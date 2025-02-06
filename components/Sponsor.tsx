@@ -95,7 +95,7 @@ export default function SponsorFrame() {
                                 <div className="relative  lg:w-full lg:h-full">
                                     <Image
                                         src={frame.url ? frame.url : "/images/SponsorKit.png"}
-                                        alt='sponsorKit'
+                                        alt="Codewizards acses Sponsors"
                                         width={200}
                                         height={200}
                                         className='lg:w-full lg:h-full border rounded-[30px]'

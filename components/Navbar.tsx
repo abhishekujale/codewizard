@@ -43,7 +43,7 @@ const Card = ({ text, link, largeDevice }: navComponents) => {
 
                 {largeDevice && (<Image
                     src="/images/navdesign.png"
-                    alt="Acses Nav Design"
+                    alt="Acses codewizard  Nav Design"
                     width={90}
                     className='-my-1.3 navImage'
                     height={90}
@@ -70,7 +70,7 @@ const Navbar = () => {
                         <Link href="/">
                             <Image
                                 src="/images/logo.png"
-                                alt="Acses Logo Design"
+                                alt="Codewizard Acses Logo Design"
                                 width={180}
                                 height={180}
                                 className='-my-1.3'

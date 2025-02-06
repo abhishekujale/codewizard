@@ -60,9 +60,9 @@ function PageContent() {
             <HomePage />
             <AboutEvent />
             <RoundesAndRules />
+            <EventDetailsPage />
             <RewardsPage />
             <Sponsor />
-            <EventDetailsPage />
             <Faqsection />
             <Footer />
           </div>
