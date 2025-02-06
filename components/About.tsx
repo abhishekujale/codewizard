@@ -22,7 +22,7 @@ const EventDetailsPage = () => {
 
     return (
         <div className="relative h-screen w-screen bg-event-bg bg-cover lg:bg-center bg-no-repeat">
-            {/* Background Image Layer */}
+          
             <div
                 className="absolute inset-0 z-0 lg:mt-[100px]">
                 <motion.h1

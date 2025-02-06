@@ -125,7 +125,8 @@ const RewardsPage: React.FC = () => {
 
                     <Image
                         src="/images/kindpng.png"
-                        alt='Frame1'
+                        alt="Codewizards acses dialog"
+
                         width={350}
                         height={350}
                         className=' border-b-white -translate-x-11 hidden lg:block'
