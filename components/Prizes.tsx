@@ -47,7 +47,7 @@ const RewardsPage: React.FC = () => {
                 ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                width: '100%',
+                width: 'screen',
             }}
 
             id='prizes'>
