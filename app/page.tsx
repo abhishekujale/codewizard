@@ -23,7 +23,7 @@ function PageContent() {
     };
 
     const handleNavigationEnd = () => {
-      setTimeout(() => setIsLoading(false), 500);
+      setTimeout(() => setIsLoading(false), 800);
     };
 
     window.addEventListener('beforeunload', handleNavigationStart);
