@@ -11,7 +11,7 @@ interface NavComponents {
 
 const allComp = [
     { text: "Home", link: "#home" },
-    { text: "Sponsor", link: "#sponsor" },
+    // { text: "Sponsor", link: "#sponsor" },
     { text: "About", link: "#about-event" },
     { text: "FAQ's", link: "#faq" },
     { text: "Register", link: "https://forms.gle/SxeRBFGbFLFvaUK46" }
@@ -60,7 +60,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="bg-[#251300] border-b border-[#3d3d3d] fixed z-50 w-screen">
+        <nav className="bg-[#251300]  fixed z-50 w-screen">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex justify-between items-center h-24">
                     <div className="lg:-mx-40 mx-0 sm:mx-0">

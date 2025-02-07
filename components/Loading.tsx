@@ -1,14 +1,11 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
-import { motion } from 'framer-motion';
 const Loading = () => {
     return (
         <div className="flex items-center justify-center h-screen bg-black scrollbar-track-black overflow-x-hidden">
             <div className="relative w-64 h-64 flex justify-center items-center ">
-                <div>
-                    {/* Container for the rotating border */}
+                {/* <div>
                     <div>
                         <div className="absolute -inset-[30px]">
                             <div style={{
@@ -79,7 +76,7 @@ const Loading = () => {
                         </div>
                     </div>
 
-                    {/* Image container */}
+                    
                     <div className="inset-2 rounded-full overflow-hidden flex items-center justify-center">
                         <Image
                             src="/images/loaderLogo.png"
@@ -89,7 +86,18 @@ const Loading = () => {
                             height={200}
                         />
                     </div>
-                </div>
+                </div> */
+                }
+                <video
+                    src="/IntroVideo.mp4"
+                    className="h-screen w-screen object-cover bg-black"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                ></video>
+
+
             </div>
         </div >
     );

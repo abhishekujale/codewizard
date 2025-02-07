@@ -10,6 +10,20 @@ const sponsorsImages = [
     },
     {
         url: '/sponsors/xyz.webp',
+    },
+    // {
+    //     url: '/sponsors/xyz.webp',
+    // },
+    // {
+    //     url: '/sponsors/xyz.webp',
+    // }, {
+    //     url: '/sponsors/xyz.webp',
+    // },
+    // {
+    //     url: '/sponsors/xyz.webp',
+    // },
+    {
+        url: '/sponsors/spcl.webp',
     }
 
 ]
@@ -44,17 +58,17 @@ export default function SponsorFrame() {
         }
     };
     return (
-        <div className="w-full"
+        <div className=" bg-cover bg-no-repeat bg-center"
             style={{
                 ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
-                width: '100%',
+                backgroundSize: 'cover',
             }}
 
             id='sponsor'>
             <motion.div
-                className="w-full  p-8 rounded-lg shadow-2xl flex items-center text-center justify-center"
+                className="w-full rounded-lg  flex items-center text-center justify-center"
                 animate={{
                     y: [0, -20, 0],
                 }}
@@ -76,13 +90,13 @@ export default function SponsorFrame() {
                     </motion.h2>
 
                     {/* Frames container */}
-                    <div className="flex flex-wrap  text-center justify-center items-center gap-8">
+                    <div className="flex flex-wrap  text-center justify-center items-center gap-2 lg:gap-8">
                         {sponsorsImages.map((frame, index) => (
                             <motion.div
                                 key={index}
-                                className="relative w-64 h-64 flex text-center left-10 lg:left-0 "
+                                className="w-auto h-auto lg:w-64 lg:h-64 flex text-center left-10 lg:left-0 "
                                 animate={{
-                                    y: [-15, 15, -15],
+                                    y: [-10, 10, -10],
                                 }}
                                 transition={{
                                     duration: 4,
@@ -92,14 +106,17 @@ export default function SponsorFrame() {
                                 }}
                             >
                                 {/* SVG Frame */}
-                                <div className="relative  lg:w-full lg:h-full">
+                                <div className="w-[150px] h-[150px] lg:w-[230px] bg-white lg:h-[180px] rounded-xl p-5 ">
+
                                     <Image
                                         src={frame.url ? frame.url : "/images/SponsorKit.png"}
                                         alt="Codewizards acses Sponsors"
-                                        width={200}
-                                        height={200}
-                                        className='lg:w-full lg:h-full border rounded-[30px]'
+                                        width={160}
+                                        height={160}
+                                        className='w-full h-full border rounded-[30px]'
                                     />
+
+
                                 </div>
                             </motion.div>
                         ))}
@@ -115,9 +132,7 @@ export default function SponsorFrame() {
             >
                 <motion.div
 
-                    animate={{
-                        y: [-15, 15, -15],
-                    }}
+
                     transition={{
                         duration: 4,
                         repeat: Infinity,
@@ -131,7 +146,7 @@ export default function SponsorFrame() {
                         alt='Frame1'
                         width={400}
                         height={400}
-                        className='-translate-y-64 translate-x-20'
+                        className='translate-y-[10px] translate-x-20'
                     />
                 </motion.div>
                 <Image
@@ -139,7 +154,7 @@ export default function SponsorFrame() {
                     alt='Frame1'
                     width={250}
                     height={250}
-                    className='border-b-white translate-y-20'
+                    className='border-b-white translate-y-[240px]'
                 />
             </div>
 

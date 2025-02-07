@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Navbar from './Navbar';
+import ScrollArrow from './ScrollArrow';
 
 export const floatingAnimation = {
     y: [-10, 10, 0],
@@ -111,7 +112,7 @@ const HomePage = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="w-full"
+            className="w-full z-50"
             style={{
                 ...(isMobile ? backgroundStyles.mobile : backgroundStyles.desktop),
                 backgroundPosition: 'center',
@@ -122,7 +123,7 @@ const HomePage = () => {
             <Navbar />
 
             {/* Main Content */}
-            <main className="relative z-10 flex items- justify-center container px-4 pt-12 text-center">
+            <main className="relative flex items- justify-center container px-4 pt-12 text-center">
                 <div>
                     <div>
                         <motion.h1
@@ -199,6 +200,7 @@ const HomePage = () => {
                     </motion.div>
                 </div>
             </main>
+            <ScrollArrow />
         </motion.div>
     );
 };

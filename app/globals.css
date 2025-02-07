@@ -20,7 +20,9 @@
     font-weight: normal;
     font-style: normal;
 }
-
+body{
+    background-color: #251300;
+}
 
 .navImage {
     display: none;

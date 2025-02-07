@@ -22,18 +22,18 @@ const EventDetailsPage = () => {
 
     return (
         <div className="relative h-[150%] w-screen bg-event-bg bg-cover lg:bg-center bg-no-repeat">
-          
+
             <div
                 className="absolute inset-0 z-0 lg:mt-[100px]">
                 <motion.h1
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    className="text-center lg:text-[130px] text-[60px] font-bold text-white mb-12 font-custom1 lg:-mt-28"
+                    className="text-center lg:text-[130px] text-[60px] font-bold text-white mb-12 font-custom1 lg:mt-10"
                 >
                     Event Details
                 </motion.h1>
 
-                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:gap-10 -mt-14">
+                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:gap-10 ">
                     {cards.map((card, index) => (
                         <motion.div
                             key={card.title}

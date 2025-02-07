@@ -23,7 +23,7 @@ function PageContent() {
     };
 
     const handleNavigationEnd = () => {
-      setTimeout(() => setIsLoading(false), 800);
+      setTimeout(() => setIsLoading(false), 500);
     };
 
     window.addEventListener('beforeunload', handleNavigationStart);
@@ -59,8 +59,8 @@ function PageContent() {
           <div className="h-screen w-screen overflow-y-scroll scrollbar-thin scrollbar-thumb-[#FFB000] scrollbar-track-black overflow-x-hidden bg-black">
             <HomePage />
             <AboutEvent />
-            <RoundesAndRules />
             <EventDetailsPage />
+            <RoundesAndRules />
             <RewardsPage />
             <Sponsor />
             <Faqsection />
