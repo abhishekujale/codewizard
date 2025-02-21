@@ -11,6 +11,7 @@ import RewardsPage from "@/components/Prizes";
 import RoundesAndRules from "@/components/RoundsAndRules";
 import Loading from "@/components/Loading";
 import EventDetailsPage from "@/components/About";
+import ResultPage from "@/components/Result";
 // Create a separate component for the content that uses useSearchParams
 function PageContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +64,7 @@ function PageContent() {
             <RoundesAndRules />
             <RewardsPage />
             <Sponsor />
+            <ResultPage />
             <Faqsection />
             <Footer />
           </div>

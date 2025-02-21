@@ -14,6 +14,7 @@ const allComp = [
     // { text: "Sponsor", link: "#sponsor" },
     { text: "About", link: "#about-event" },
     { text: "FAQ's", link: "#faq" },
+    { text: "Result's", link: "#results" },
     { text: "Register", link: "https://forms.gle/SxeRBFGbFLFvaUK46" }
 ];
 
