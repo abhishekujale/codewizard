@@ -40,7 +40,7 @@ const ResultPage = () => {
                 <h2 className="lg:text-[120px] text-[80px] font-custom1 text-[#FFB000]">Result's</h2>
             </motion.div>
 
-            <div className="flex flex-col md:flex-row justify-center items-center gap-20 mt-20 relative z-10">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-20 mt-21 relative z-10">
                 {['Round 1', 'Round 2', 'Round 3'].map((round) => (
                     <motion.div
                         key={round}
