@@ -7,11 +7,11 @@ import { glowAnimation } from './Home';
 const ResultPage = () => {
     const handleClick = (round : string) => {
         if(round == "Round 1"){
-            window.open("https://drive.google.com/drive/folders/1Kf4XXEHZtyMqIRd2-5Nbz5WmlRiakxSq", "_blank");
+            window.open("https://drive.google.com/file/d/10AKhXkUQUColSm7RBY7FqXJJO8cTlnjo/view?usp=drive_link", "_blank");
         }else if(round == "Round 2"){
-            window.open("https://drive.google.com/drive/folders/1Kf4XXEHZtyMqIRd2-5Nbz5WmlRiakxSq", "_blank");
+            window.open(" ", "_blank");
         }else{
-            window.open("https://drive.google.com/drive/folders/1Kf4XXEHZtyMqIRd2-5Nbz5WmlRiakxSq", "_blank");
+            window.open("", "_blank");
         }
     };
 
