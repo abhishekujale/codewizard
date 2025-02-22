@@ -9,7 +9,7 @@ const ResultPage = () => {
         if(round == "Round 1"){
             window.open("https://drive.google.com/file/d/10AKhXkUQUColSm7RBY7FqXJJO8cTlnjo/view?usp=drive_link", "_blank");
         }else if(round == "Round 2"){
-            window.open(" ", "_blank");
+            window.open("https://drive.google.com/file/d/1qy8CKfK54Kod-ifefrYaDjxGM0i3Zn4_/view?usp=sharing", "_blank");
         }else{
             window.open("", "_blank");
         }
